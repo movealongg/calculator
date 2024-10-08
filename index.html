@@ -12,9 +12,18 @@
 </head>
 <body>
     <div class="calculator">
+        <button class="settings-button">
+            &#9881;
+        </button>
+        <div class="themes hide-dropdown">
+            <h4>Themes</h4>
+            <p class="theme-button">Dark</p>
+            <p class="theme-button">Light</p>
+            <p class="theme-button">Neutral</p>
+            <p class="theme-button">Lavender Haze</p>
+        </div>
         <div class="display">
             <div class="calculations">
-                <p class="input"></p>
                 <p class="output"></p>
             </div>
         </div>
@@ -22,10 +31,11 @@
             <button class="history-button">
                 &#128336;
             </button>
+            <p class="input"></p>
         </div>
         <div class="history">
             <div class="history-title">
-                <p>History</p>
+                <h4>History</h4>
                 <button class="history-button close">&#x2715;</button>
             </div>
             <div class="history-text"></div>
@@ -33,33 +43,33 @@
         </div>
         <div class="buttons">
             <!-- Row 1 -->
-            <button class="silver" value="C">C</button>
-            <button class="silver" value="Del">&#9003;</button>
-            <button class="silver" value=" % ">%</button>
-            <button class="orange" value=" ÷ ">÷</button>
+            <button class="top-row-bg-color" value="C">C</button>
+            <button class="top-row-bg-color" value="Del">&#9003;</button>
+            <button class="top-row-bg-color" value=" % ">%</button>
+            <button class="operator-color" value=" ÷ ">÷</button>
     
             <!-- Row 2 -->
-            <button class="charcoal" value="7">7</button>
-            <button class="charcoal" value="8">8</button>
-            <button class="charcoal" value="9">9</button>
-            <button class="orange" value=" x ">x</button>
+            <button class="number-bg-color" value="7">7</button>
+            <button class="number-bg-color" value="8">8</button>
+            <button class="number-bg-color" value="9">9</button>
+            <button class="operator-color" value=" x ">x</button>
     
             <!-- Row 3 -->
-            <button class="charcoal" value="4">4</button>
-            <button class="charcoal" value="5">5</button>
-            <button class="charcoal" value="6">6</button>
-            <button class="orange" value=" - ">-</button>
+            <button class="number-bg-color" value="4">4</button>
+            <button class="number-bg-color" value="5">5</button>
+            <button class="number-bg-color" value="6">6</button>
+            <button class="operator-color" value=" - ">-</button>
     
             <!-- Row 4 -->
-            <button class="charcoal" value="1">1</button>
-            <button class="charcoal" value="2">2</button>
-            <button class="charcoal" value="3">3</button>
-            <button class="orange" value=" + ">+</button>
+            <button class="number-bg-color" value="1">1</button>
+            <button class="number-bg-color" value="2">2</button>
+            <button class="number-bg-color" value="3">3</button>
+            <button class="operator-color" value=" + ">+</button>
     
             <!-- Row 5 -->
-            <button class="wide charcoal" value="0">0</button>
-            <button class="charcoal" value=".">.</button>
-            <button class="orange" value="=">=</button>
+            <button class="wide number-bg-color" value="0">0</button>
+            <button class="number-bg-color" value=".">.</button>
+            <button class="operator-color" value="=">=</button>
         </div>
     </div>
     <script src="index.js"></script>

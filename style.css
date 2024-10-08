@@ -1,16 +1,18 @@
 :root {
-    --black: #000000;
-    --white: #ffffff;
-    --charcoal: #1C1C1C;
+    --background-color: #000000;
+    --display-text-color: #ffffff;
+    --button-text-color: #ffffff;
+    --number-bg-color: #1C1C1C;
+    --gear-color: #D4D4D2;
     --concrete: #505050;
-    --silver: #D4D4D2;
-    --orange: #FF9500;
+    --top-row-bg-color: #D4D4D2;
+    --operator-color: #FF9500;
     --clear: transparent;
+    --black: #000000;
 }
 
 body {
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--background-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,14 +23,14 @@ body {
 
 /* Entire calculator */
 .calculator {
-    background-color: var(--black);
+    background-color: var(--background-color);
     width: 100%;
     max-width: 430px;
     max-height: 660px;
     border-radius: 10px;
     height: 100%;
     display: grid;
-    grid-template-rows: 115px 40px auto;
+    grid-template-rows: 40px 115px 40px auto;
     overflow: hidden;
     padding: 20px 0;
     position: relative;
@@ -36,7 +38,7 @@ body {
 
 /* Calculator display */
 .display {
-    color: var(--white);
+    color: var(--display-text-color);
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -48,18 +50,67 @@ body {
     display: block;
 }
 
-.display .input {
-    font-size: 30px;
-}
-
 .display .output {
     font-size: 50px;
+}
+
+/* Themes */
+.settings-button {
+    background-color: var(--clear);
+    border: none;
+    font-size: 30px;
+    padding: 8px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    color: var(--gear-color);
+    margin-left: auto;
+    box-sizing: content-box;
+}
+
+.themes {
+    position: absolute;
+    width: 40%;
+    background-color: var(--number-bg-color);
+    margin-top: 80px;
+    box-sizing: border-box;
+    right: 0;
+    color: var(--button-text-color);
+    overflow: hidden;
+}
+
+.show-dropdown {
+    height: 32%;
+    transition: all 0.2s ease-out;
+}
+
+.hide-dropdown {
+    height: 0;
+    transition: all 0.2s ease-out;
+}
+
+.themes h4 {
+    padding: 0 20px;
+    text-transform: uppercase;
+}
+
+.themes p {
+    padding: 8px 20px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.themes p:hover {
+    background-color: var(--top-row-bg-color);
+    color: var(--black);
 }
 
 /* Action buttons */
 .actions {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .actions .history-button {
@@ -70,12 +121,17 @@ body {
     cursor: pointer;
 }
 
+.actions .input {
+    font-size: 25px;
+    color: var(--display-text-color);
+}
+
 /* Calculator history */
 .history {
     position: absolute;
     width: 75%;
     height: 73%;
-    background-color: var(--charcoal);
+    background-color: var(--number-bg-color);
     transition: transform 1s ease;
     margin-top: 172px;
     padding: 20px;
@@ -83,6 +139,7 @@ body {
     left: -500px;
     display: flex;
     flex-direction: column;
+    color: var(--button-text-color);
 }
 
 .history-title {
@@ -91,7 +148,7 @@ body {
     margin-bottom: 16px;
 }
 
-.history-title p {
+.history-title h4 {
     margin: 0;
     text-transform: uppercase;
     font-size: 14px;
@@ -105,8 +162,8 @@ body {
 
 .close {
     margin-left: auto;
-    background-color: var(--silver);
-    border: solid var(--silver) 1px;
+    background-color: var(--top-row-bg-color);
+    border: solid var(--top-row-bg-color) 1px;
     border-radius: 50%;
     color: var(--black);
     padding: 5px 8px;
@@ -119,23 +176,23 @@ body {
 }
 
 .equation {
-    color: var(--silver);
+    color: var(--button-text-color);
     font-size: 14px;
     margin: 8px 0 5px;
 }
 
 .answer {
-    color: var(--white);
+    color: var(--button-text-color);
     font-size: 18px;
     margin: 0;
-    border-bottom: var(--silver) 1px;
+    border-bottom: var(--top-row-bg-color) 1px;
     padding-bottom: 12px;
 }
 
 .clear {
     margin-top: auto;
     cursor: pointer;
-    background-color: var(--silver);
+    background-color: var(--top-row-bg-color);
     border: none;
     padding: 8px;
     border-radius: 5px;
@@ -150,7 +207,7 @@ body {
 }
 
 .buttons button {
-    color: var(--white);
+    color: var(--button-text-color);
     font-size: 35px;
     border: none;
     border-radius: 10px;
@@ -162,16 +219,16 @@ body {
     grid-column: 1 / span 2;
 }
 
-.orange {
-    background-color: var(--orange);
+.operator-color {
+    background-color: var(--operator-color);
 }
 
-.charcoal {
-    background-color: var(--charcoal);
+.number-bg-color {
+    background-color: var(--number-bg-color);
 }
 
-.silver {
-    background-color: var(--silver);
+.top-row-bg-color {
+    background-color: var(--top-row-bg-color);
     color: var(--black) !important;
 }
 
