@@ -17,15 +17,15 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    height: 90vh;
     font-family: "Open Sans", sans-serif;
 }
 
 /* Entire calculator */
 .calculator {
     background-color: var(--background-color);
-    width: 100%;
-    max-width: 360px;
+    width: 90%;
+    max-width: 45px;
     max-height: 660px;
     border-radius: 10px;
     height: 100%;
@@ -70,7 +70,7 @@ body {
 
 .themes {
     position: absolute;
-    width: 42%;
+    width: 45%;
     background-color: var(--number-bg-color);
     margin-top: 80px;
     box-sizing: border-box;
