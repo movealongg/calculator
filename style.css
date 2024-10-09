@@ -17,22 +17,22 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 90vh;
+    height: 85vh;
     font-family: "Open Sans", sans-serif;
 }
 
 /* Entire calculator */
 .calculator {
     background-color: var(--background-color);
-    width: 90%;
-    max-width: 430px;
+    width: 100%;
+    max-width: 390px;
     max-height: 660px;
     border-radius: 10px;
     height: 100%;
     display: grid;
     grid-template-rows: 40px 115px 40px auto;
     overflow: hidden;
-    padding: 20px 0;
+    padding: 20px;
     position: relative;
 }
 
@@ -70,11 +70,11 @@ body {
 
 .themes {
     position: absolute;
-    width: 45%;
+    width: 42%;
     background-color: var(--number-bg-color);
     margin-top: 80px;
     box-sizing: border-box;
-    right: 0;
+    right: 5px;
     color: var(--button-text-color);
     overflow: hidden;
 }
@@ -92,6 +92,7 @@ body {
 .themes h4 {
     padding: 0 20px;
     text-transform: uppercase;
+    margin: 10px 0;
 }
 
 .themes p {
@@ -176,7 +177,7 @@ body {
 }
 
 .show-history {
-    transform: translate3d(500px, 0, 0);
+    transform: translate3d(510px, 0, 0);
     transition: transform 1s ease;
 }
 
