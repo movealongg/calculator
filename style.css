@@ -25,7 +25,7 @@ body {
 .calculator {
     background-color: var(--background-color);
     width: 90%;
-    max-width: 45px;
+    max-width: 430px;
     max-height: 660px;
     border-radius: 10px;
     height: 100%;
