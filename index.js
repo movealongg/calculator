@@ -216,7 +216,7 @@ function evaluate() {
 }
 
 // Get calculator theme on load or use default. Get calculator history if there is any.
-window.addEventListener('load', () => {
+window.addEventListener('pageshow', () => {
     let theme = localStorage.getItem('calculatorTheme');
     let history = localStorage.getItem('calculatorHistory');
 
@@ -233,6 +233,6 @@ window.addEventListener('load', () => {
 });
 
 // Save calculator history when you leave the page 
-window.addEventListener('beforeunload', function() {
+window.addEventListener('pagehide', function() {
     localStorage.setItem('calculatorHistory', calculations.innerHTML);
 });

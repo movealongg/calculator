@@ -25,7 +25,7 @@ body {
 .calculator {
     background-color: var(--background-color);
     width: 100%;
-    max-width: 430px;
+    max-width: 360px;
     max-height: 660px;
     border-radius: 10px;
     height: 100%;
@@ -70,7 +70,7 @@ body {
 
 .themes {
     position: absolute;
-    width: 40%;
+    width: 42%;
     background-color: var(--number-bg-color);
     margin-top: 80px;
     box-sizing: border-box;
@@ -202,6 +202,7 @@ body {
     padding: 8px;
     border-radius: 5px;
     text-transform: uppercase;
+    color: var(--black);
 }
 
 /* Calculator buttons */
