@@ -105,6 +105,11 @@ body {
     color: var(--black);
 }
 
+.selected {
+    background-color: var(--top-row-bg-color);
+    color: var(--black);
+} 
+
 /* Action buttons */
 .actions {
     display: flex;

@@ -20,7 +20,6 @@ let equationOperators = [ ' ÷ ', ' x ', ' + ', ' - ' ];
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
         let buttonValue = e.target.value;
-        console.log(buttonValue)
 
         if (buttonValue === 'C') {
             // If you hit the clear button, clear out both input and output
@@ -126,6 +125,11 @@ historyButtons.forEach((button) => {
     });
 });
 
+// Add click event to clear out history
+clear.addEventListener('click', () => {
+    calculations.innerHTML = '';
+});
+
 // Add click event to settings button to open theme dropdown
 settingsButton.addEventListener('click', () => {
     themes.classList.toggle('show-dropdown');
@@ -136,58 +140,61 @@ settingsButton.addEventListener('click', () => {
 themeButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
         let themeSelection = e.target.innerText;
-        let root = document.querySelector(':root');
-
-        if (themeSelection === 'Dark') {
-            root.style.setProperty("--background-color", "#000000");
-            root.style.setProperty("--display-text-color", "#ffffff");
-            root.style.setProperty("--button-text-color", "#ffffff");
-            root.style.setProperty("--number-bg-color", "#1C1C1C");
-            root.style.setProperty("--top-row-bg-color", "#D4D4D2");
-            root.style.setProperty("--gear-color", "#D4D4D2");
-            root.style.setProperty("--operator-color", "#FF9500");
-            themes.classList.toggle('show-dropdown');
-            themes.classList.toggle('hide-dropdown');
-        } else if (themeSelection === 'Light') {
-            root.style.setProperty("--background-color", "#ffffff");
-            root.style.setProperty("--display-text-color", "#000000");
-            root.style.setProperty("--button-text-color", "#ffffff");
-            root.style.setProperty("--number-bg-color", "#1C1C1C");
-            root.style.setProperty("--top-row-bg-color", "#D4D4D2");
-            root.style.setProperty("--gear-color", "#1C1C1C");
-            root.style.setProperty("--operator-color", "#FF9500");
-            themes.classList.toggle('show-dropdown');
-            themes.classList.toggle('hide-dropdown');
-        } else if (themeSelection === 'Neutral') {
-            root.style.setProperty("--background-color", "#1d1d1d");
-            root.style.setProperty("--display-text-color", "#ffffff");
-            root.style.setProperty("--button-text-color", "#ffffff");
-            root.style.setProperty("--number-bg-color", "#967860");
-            root.style.setProperty("--top-row-bg-color", "#e8dac9");
-            root.style.setProperty("--gear-color", "#D4D4D2");
-            root.style.setProperty("--operator-color", "#9f9785");
-            themes.classList.toggle('show-dropdown');
-            themes.classList.toggle('hide-dropdown');
-        } else {
-            root.style.setProperty("--background-color", "#5b5a72");
-            root.style.setProperty("--display-text-color", "#ffffff");
-            root.style.setProperty("--button-text-color", "#ffffff");
-            root.style.setProperty("--number-bg-color", "#9482a5");
-            root.style.setProperty("--top-row-bg-color", "#cacee2");
-            root.style.setProperty("--gear-color", "#D4D4D2");
-            root.style.setProperty("--operator-color", "#b891b8");
-            themes.classList.toggle('show-dropdown');
-            themes.classList.toggle('hide-dropdown');
-        }
+        selectTheme(themeSelection);
+        themes.classList.toggle('show-dropdown');
+        themes.classList.toggle('hide-dropdown');
     });
 });
 
+// Update styles based on theme selected
+function selectTheme(theme) {
+    let root = document.querySelector(':root');
+    if (theme === 'Dark') {
+        localStorage.setItem('calculatorTheme', 'Dark')
+        root.style.setProperty("--background-color", "#000000");
+        root.style.setProperty("--display-text-color", "#ffffff");
+        root.style.setProperty("--button-text-color", "#ffffff");
+        root.style.setProperty("--number-bg-color", "#1C1C1C");
+        root.style.setProperty("--top-row-bg-color", "#D4D4D2");
+        root.style.setProperty("--gear-color", "#D4D4D2");
+        root.style.setProperty("--operator-color", "#FF9500");
+    } else if (theme === 'Light') {
+        localStorage.setItem('calculatorTheme', 'Light')
+        root.style.setProperty("--background-color", "#ffffff");
+        root.style.setProperty("--display-text-color", "#000000");
+        root.style.setProperty("--button-text-color", "#ffffff");
+        root.style.setProperty("--number-bg-color", "#1C1C1C");
+        root.style.setProperty("--top-row-bg-color", "#D4D4D2");
+        root.style.setProperty("--gear-color", "#1C1C1C");
+        root.style.setProperty("--operator-color", "#FF9500");
+    } else if (theme === 'Neutral') {
+        localStorage.setItem('calculatorTheme', 'Neutral')
+        root.style.setProperty("--background-color", "#1d1d1d");
+        root.style.setProperty("--display-text-color", "#ffffff");
+        root.style.setProperty("--button-text-color", "#ffffff");
+        root.style.setProperty("--number-bg-color", "#967860");
+        root.style.setProperty("--top-row-bg-color", "#e8dac9");
+        root.style.setProperty("--gear-color", "#D4D4D2");
+        root.style.setProperty("--operator-color", "#9f9785");
+    } else {
+        localStorage.setItem('calculatorTheme', 'Lavender Haze')
+        root.style.setProperty("--background-color", "#5b5a72");
+        root.style.setProperty("--display-text-color", "#ffffff");
+        root.style.setProperty("--button-text-color", "#ffffff");
+        root.style.setProperty("--number-bg-color", "#9482a5");
+        root.style.setProperty("--top-row-bg-color", "#cacee2");
+        root.style.setProperty("--gear-color", "#cacee2");
+        root.style.setProperty("--operator-color", "#b891b8");
+    }
 
-
-// Add click event to clear out history
-clear.addEventListener('click', () => {
-    calculations.innerHTML = '';
-});
+    // Show which theme is selected in the dropdown
+    themeButtons.forEach(button => {
+        button.classList.remove('selected');
+        if (button.innerText === theme) {
+            button.classList.add('selected');
+        }
+    })
+}
 
 // Evaluate equation 
 function evaluate() {
@@ -207,3 +214,25 @@ function evaluate() {
     // Add the full equation to the history
     calculations.innerHTML = `<div class="calculation"><p class="equation">${expression} = </p><p class="answer">${answer}</p></div>` + calculations.innerHTML;
 }
+
+// Get calculator theme on load or use default. Get calculator history if there is any.
+window.addEventListener('load', () => {
+    let theme = localStorage.getItem('calculatorTheme');
+    let history = localStorage.getItem('calculatorHistory');
+
+    if (theme) {
+        selectTheme(theme);
+    } else {
+        selectTheme('Dark');
+        localStorage.setItem('calculatorTheme', 'Dark');
+    }
+
+    if (history) {
+        calculations.innerHTML = history;
+    }
+});
+
+// Save calculator history when you leave the page 
+window.addEventListener('beforeunload', function() {
+    localStorage.setItem('calculatorHistory', calculations.innerHTML);
+});
