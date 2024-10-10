@@ -110,7 +110,19 @@ buttons.forEach((button) => {
                 input.innerText = value;
             }
         }
-    })
+    });
+
+    button.addEventListener('touchstart', () => {
+        button.classList.add('clicked');
+    });
+
+    button.addEventListener('touchend', () => {
+        button.classList.remove('clicked');
+    });
+
+    button.addEventListener('touchcancel', () => {
+        button.classList.remove('clicked');
+    });
 });
 
 // Replace multiply and divide symbols before calculating
@@ -156,7 +168,7 @@ function selectTheme(theme) {
         root.style.setProperty("--button-text-color", "#ffffff");
         root.style.setProperty("--number-bg-color", "#1C1C1C");
         root.style.setProperty("--top-row-bg-color", "#D4D4D2");
-        root.style.setProperty("--gear-color", "#D4D4D2");
+        root.style.setProperty("--icon-color", "#D4D4D2");
         root.style.setProperty("--operator-color", "#FF9500");
     } else if (theme === 'Light') {
         localStorage.setItem('calculatorTheme', 'Light')
@@ -165,7 +177,7 @@ function selectTheme(theme) {
         root.style.setProperty("--button-text-color", "#ffffff");
         root.style.setProperty("--number-bg-color", "#1C1C1C");
         root.style.setProperty("--top-row-bg-color", "#D4D4D2");
-        root.style.setProperty("--gear-color", "#1C1C1C");
+        root.style.setProperty("--icon-color", "#1C1C1C");
         root.style.setProperty("--operator-color", "#FF9500");
     } else if (theme === 'Neutral') {
         localStorage.setItem('calculatorTheme', 'Neutral')
@@ -174,7 +186,7 @@ function selectTheme(theme) {
         root.style.setProperty("--button-text-color", "#ffffff");
         root.style.setProperty("--number-bg-color", "#967860");
         root.style.setProperty("--top-row-bg-color", "#e8dac9");
-        root.style.setProperty("--gear-color", "#D4D4D2");
+        root.style.setProperty("--icon-color", "#D4D4D2");
         root.style.setProperty("--operator-color", "#9f9785");
     } else {
         localStorage.setItem('calculatorTheme', 'Lavender Haze')
@@ -183,7 +195,7 @@ function selectTheme(theme) {
         root.style.setProperty("--button-text-color", "#ffffff");
         root.style.setProperty("--number-bg-color", "#9482a5");
         root.style.setProperty("--top-row-bg-color", "#cacee2");
-        root.style.setProperty("--gear-color", "#cacee2");
+        root.style.setProperty("--icon-color", "#cacee2");
         root.style.setProperty("--operator-color", "#b891b8");
     }
 
