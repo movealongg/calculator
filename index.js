@@ -28,8 +28,13 @@ buttons.forEach((button) => {
             output.innerText = '';
         } else if (buttonValue === 'Del') {
             if (value.length > 1) {
-                // If you hit backspace and the input has at least one character, remove the last character
-                value = value.slice(0, -1);
+                // If you hit backspace and it ends with an operator, remove all the spaces and the operator. Otherwise, remove the last character
+                if (value.endsWith(' ')) {
+                    value = value.slice(0, -3);
+                } else {
+                    value = value.slice(0, -1);
+                }
+
             } else {
                 // otherwise just clear out the value / input
                 value = '';
